@@ -1,3 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Nunito+Sans:wght@200;300;400;700&family=Playfair+Display:wght@400;600&display=swap");
+aside {
+  font-family: "Nunito Sans", sans-serif;
+  width: 20%;
+  height: 100vh;
+  background-image: linear-gradient(135deg, rgb(34, 34, 34) 0%, rgb(23, 23, 23) 100%);
+  padding-inline: 1rem;
+}
+aside .header {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a2a2a2;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid #2e2e2d;
+}
+aside .header h1 sub {
+  color: #616160;
+}
+aside .projects {
+  height: 90%;
+}
+
 body {
-  background-color: white;
+  background-color: #141416;
+  display: flex;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }/*# sourceMappingURL=style.css.map */

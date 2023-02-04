@@ -1,0 +1,26 @@
+@use "colors" as *;
+@use "fonts" as *;
+@use "mixins" as *;
+
+aside {
+    @include normal;
+    width: 20%;
+    height: 100vh;
+    background-image: $asideBg;
+    padding-inline: 1rem;
+    .header {
+        height: 10%;
+        @include flex;
+        color: $textW;
+        letter-spacing: 0.1em;
+        border-bottom: 2px solid $line;
+        h1 {
+            sub {
+                color: $textWd;
+            }
+        }
+    }
+    .projects {
+        height: 90%;
+    }
+}

@@ -1,3 +1,13 @@
+@use "colors" as *;
+@use "aside";
+
 body {
-    background-color: white;
+    background-color: $bgMain;
+    display: flex;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
