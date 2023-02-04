@@ -1,5 +1,24 @@
 import Task from "./task.js";
 import Project from "./project.js";
+import { populateStorage, retriveStorage, projectsList } from "./localStorage.js";
 
-let task1 = new Task("Zjesc", "musze zjesc jutro rano", "2022-10-13", 3);
-let Inbox = new Project("inbox");
+retriveStorage();
+// let task1 = new Task("Zjesc", "musze zjesc jutro rano", "2022-10-13", 3);
+// let task2 = new Task("Zjesc", "musze zjesc jutro rano", "2022-10-13", 3);
+// let task3 = new Task("Zjesc", "musze zjesc jutro rano", "2022-10-13", 3);
+// let task4 = new Task("Zjesc", "musze zjesc jutro rano", "2022-10-13", 3);
+// let task5 = new Task("Zjesc", "musze zjesc jutro rano", "2022-10-13", 3);
+// let Inbox = new Project("inbox");
+// let Focus = new Project("focus");
+// Inbox.add(task1);
+// Inbox.add(task2);
+// Inbox.add(task3);
+// Focus.add(task4);
+// Focus.add(task5);
+// let Empty = new Project("empty");
+// projectsList.push(Empty);
+// projectsList.push(Focus);
+// console.log(projectsList);
+populateStorage(projectsList);
+// console.log(Inbox);
+console.log(projectsList);
