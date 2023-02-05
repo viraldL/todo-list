@@ -1,0 +1,15 @@
+@use "colors" as *;
+@use "fonts" as *;
+@use "mixins" as *;
+
+header {
+    height: 10%;
+    margin-inline: 1rem;
+    border-bottom: 2px solid $line;
+    #projectName {
+        height: 100%;
+        @include flex;
+        color: $textW;
+        @include normal;
+    }
+}

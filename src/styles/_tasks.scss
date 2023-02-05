@@ -1,0 +1,94 @@
+@use "colors" as *;
+@use "fonts" as *;
+@use "mixins" as *;
+
+main {
+    section {
+        overflow: auto;
+        height: 90%;
+        padding: 1rem;
+        &::-webkit-scrollbar{
+            height: 100%;
+            width: 5px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: $taskBg;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $line;
+        }
+        .task {
+            margin-block: 1rem;
+            @include flex;
+            gap: 10px;
+            background-color: $taskBg;
+            border-radius: 10px;
+            .checkmark {
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-color: #ddd;
+                border-radius: 5px;
+                position: relative;
+                transition: background-color 0.4s;
+                overflow: hidden;
+                cursor: pointer;
+               }
+               
+               #check:checked ~ .checkmark {
+                background-color: #08bb68;
+               }
+               
+               .checkmark::after {
+                content: "";
+                position: absolute;
+                width: 5px;
+                height: 10px;
+                border-right: 3px solid #fff;
+                border-bottom: 3px solid #fff;
+                top: 44%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotateZ(40deg) scale(10);
+                opacity: 0;
+                transition: all 0.4s;
+               }
+               
+               #check:checked ~ .checkmark::after {
+                opacity: 1;
+                transform: translate(-50%, -50%) rotateZ(40deg) scale(1);
+               }
+            div {
+                width: 90%;
+                @include flex;
+                gap: 5px;
+                flex-direction: column;
+                @include normal;
+                padding: 1rem;
+                .titlenpri {
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .title {
+                    color: $textW;
+                    font-size: 2rem;
+                }
+                .desc {
+                    color: $textY;
+                    font-size: 1rem;
+                }
+                .prior {
+                    height: 16px;
+                    flex-direction: row;
+                    img {
+                        fill: #fff;
+                    }
+                }
+                .dueDate {
+                    color: $textWd;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}

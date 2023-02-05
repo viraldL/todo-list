@@ -1,9 +1,14 @@
 @use "colors" as *;
 @use "aside";
+@use "header";
+@use "main";
+@use "tasks";
 
 body {
     background-color: $bgMain;
     display: flex;
+    height: 100vh;
+    overflow: hidden;
 }
 
 * {
