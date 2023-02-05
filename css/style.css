@@ -20,11 +20,138 @@ aside .header h1 sub {
 }
 aside .projects {
   height: 90%;
+  padding-block: 2rem;
+}
+aside .projects .proj {
+  cursor: pointer;
+  color: #a2a2a2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  justify-content: start;
+  height: 3rem;
+  border-bottom: 1px solid #2e2e2d;
+  transition: border-bottom 0.3s ease-in-out;
+}
+aside .projects .proj:hover {
+  border-bottom: 1px solid #a2a2a2;
+}
+
+header {
+  height: 10%;
+  margin-inline: 1rem;
+  border-bottom: 2px solid #2e2e2d;
+}
+header #projectName {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a2a2a2;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+main {
+  width: 80%;
+  height: 100%;
+}
+
+main section {
+  overflow: auto;
+  height: 90%;
+  padding: 1rem;
+}
+main section::-webkit-scrollbar {
+  height: 100%;
+  width: 5px;
+}
+main section::-webkit-scrollbar-track {
+  background-color: #18181a;
+}
+main section::-webkit-scrollbar-thumb {
+  background-color: #2e2e2d;
+}
+main section .task {
+  margin-block: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #18181a;
+  border-radius: 10px;
+}
+main section .task .checkmark {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 5px;
+  position: relative;
+  transition: background-color 0.4s;
+  overflow: hidden;
+  cursor: pointer;
+}
+main section .task #check:checked ~ .checkmark {
+  background-color: #08bb68;
+}
+main section .task .checkmark::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(40deg) scale(10);
+  opacity: 0;
+  transition: all 0.4s;
+}
+main section .task #check:checked ~ .checkmark::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotateZ(40deg) scale(1);
+}
+main section .task div {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-direction: column;
+  font-family: "Nunito Sans", sans-serif;
+  padding: 1rem;
+}
+main section .task div .titlenpri {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+main section .task div .title {
+  color: #a2a2a2;
+  font-size: 2rem;
+}
+main section .task div .desc {
+  color: #514a3f;
+  font-size: 1rem;
+}
+main section .task div .prior {
+  height: 16px;
+  flex-direction: row;
+}
+main section .task div .prior img {
+  fill: #fff;
+}
+main section .task div .dueDate {
+  color: #616160;
+  font-size: 0.8rem;
 }
 
 body {
   background-color: #141416;
   display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
 * {
