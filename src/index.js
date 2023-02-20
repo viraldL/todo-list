@@ -1,6 +1,7 @@
 import Task from "./task.js";
 import Project from "./project.js";
 import { populateStorage, retriveStorage, projectsList } from "./localStorage.js";
+import { addTaskFormOpenClose } from "./displayController.js";
 
 retriveStorage();
 // let task1 = new Task("Zjesc", "musze zjesc jutro rano", "2022-10-13", 3);
@@ -9,6 +10,7 @@ retriveStorage();
 // let task4 = new Task("Zjesc", "musze zjesc jutro rano", "2022-10-13", 3);
 // let task5 = new Task("Zjesc", "musze zjesc jutro rano", "2022-10-13", 3);
 // let Inbox = new Project("inbox");
+// projectsList.push(Inbox);
 // let Focus = new Project("focus");
 // Inbox.add(task1);
 // Inbox.add(task2);
@@ -16,9 +18,9 @@ retriveStorage();
 // Focus.add(task4);
 // Focus.add(task5);
 // // let Empty = new Project("empty");
-// projectsList.push(Inbox);
 // projectsList.push(Focus);
 // console.log(projectsList);
 populateStorage(projectsList);
 // console.log(Inbox);
 console.log(projectsList);
+addTaskFormOpenClose(".addTask", ".closeBtn", ".taskForm");

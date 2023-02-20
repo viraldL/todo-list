@@ -19,7 +19,7 @@ aside .header h1 sub {
   color: #616160;
 }
 aside .projects {
-  height: 90%;
+  height: 85%;
   padding-block: 2rem;
 }
 aside .projects .proj {
@@ -37,19 +37,138 @@ aside .projects .proj {
 aside .projects .proj:hover {
   border-bottom: 1px solid #a2a2a2;
 }
+aside .footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #514a3f;
+  height: 5%;
+}
 
 header {
   height: 10%;
   margin-inline: 1rem;
   border-bottom: 2px solid #2e2e2d;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 header #projectName {
   height: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #a2a2a2;
   font-family: "Nunito Sans", sans-serif;
+}
+header .addTask {
+  font-family: "Nunito Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  width: 10%;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: #a2a2a2;
+  padding: 1rem 2rem;
+  background-color: #2d2d2e;
+  border-radius: 10px;
+  border: 2px solid #2d2d2e;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+header .addTask:hover {
+  background: transparent;
+  color: #514a3f;
+}
+header .active {
+  display: flex !important;
+}
+header .taskForm {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+header .taskForm h4 {
+  margin: auto;
+  color: #514a3f;
+}
+header .taskForm > div {
+  position: relative;
+  font-family: "Nunito Sans", sans-serif;
+  color: #a2a2a2;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2rem 2rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #2d2d2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+  border-radius: 10px;
+}
+header .taskForm > div span {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+}
+header .taskForm > div span:hover {
+  font-weight: 800;
+}
+header .taskForm > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+}
+header .taskForm > div > div input, header .taskForm > div > div select {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: #464648;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: #e6e6e6;
+}
+header .taskForm > div > div input:focus, header .taskForm > div > div select:focus {
+  outline: 1px solid #5f5f62;
+}
+header .taskForm > div > div:last-child {
+  width: 100%;
+  height: 2rem;
+}
+header .taskForm > div > div button {
+  width: 100%;
+  height: 2rem;
+  background-color: #514a3f;
+  color: #a2a2a2;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+  border: 2px solid #514a3f;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+header .taskForm > div > div button:hover {
+  background: transparent;
+  color: #514a3f;
 }
 
 main {

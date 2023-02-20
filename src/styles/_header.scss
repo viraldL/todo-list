@@ -6,10 +6,115 @@ header {
     height: 10%;
     margin-inline: 1rem;
     border-bottom: 2px solid $line;
+    display: flex;
+    @include flex;
     #projectName {
         height: 100%;
+        width: 90%;
         @include flex;
         color: $textW;
         @include normal;
+    }
+
+    .addTask {
+        @include normal;
+        @include flex;
+        font-weight: 900;
+        width: 10%;
+        height: fit-content;
+        color: $textW;
+        padding: 1rem 2rem;
+        background-color: $btn;
+        border-radius: 10px;
+        border: 2px solid $btn;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        &:hover {
+            background: transparent;
+            color: $textY;
+        }
+    }
+
+    .active {
+        display: flex !important;
+    }
+
+    .taskForm {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        h4 {
+            margin: auto;
+            color: $textY;
+        }
+        & > div {
+            span {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                cursor: pointer;
+                &:hover {
+                    font-weight: 800;
+                }
+            }
+            position: relative;
+            @include normal;
+            color: $textW;
+            width: fit-content;
+            padding: 2rem 2rem; 
+            height: fit-content;
+            background-color: $btn;
+            @include flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 0.5rem;
+            border-radius: 10px;
+            & > div {
+                @include flex;
+                flex-direction: column;
+                align-items: start;
+                input, select {
+                    @include normal;
+                    background-color: lighten($color: $btn, $amount: 10);
+                    border: none;
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    color: darken($color: white, $amount: 10);
+
+                    &:focus {
+                        outline: 1px solid lighten($color: $btn, $amount: 20);
+                    }
+                }
+                &:last-child {
+                    width: 100%;
+                    height: 2rem;
+                }
+                button {
+                    width: 100%;
+                    height: 2rem;
+                    background-color: $textY;
+                    color: $textW;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    font-weight: 600;
+                    border: 2px solid $textY;
+                    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+                    &:hover {
+                        background: transparent;
+                        color: $textY;
+                    }
+                }
+            }
+        }
     }
 }

@@ -21,7 +21,7 @@ aside {
         }
     }
     .projects {
-        height: 90%;
+        height: 85%;
         padding-block: 2rem;
         .proj {
             cursor: pointer;
@@ -36,5 +36,10 @@ aside {
                 border-bottom: 1px solid $textW;
             }
         }
+    }
+    .footer {
+        @include flex;
+        color: $textY;
+        height: 5%;
     }
 }
