@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Nunito+Sans:wght@200;300;400;700&family=Playfair+Display:wght@400;600&display=swap");
+.active {
+  display: flex !important;
+}
+
 aside {
   font-family: "Nunito Sans", sans-serif;
   width: 20%;
@@ -35,6 +39,93 @@ aside .projects .proj {
   transition: border-bottom 0.3s ease-in-out;
 }
 aside .projects .proj:hover {
+  border-bottom: 1px solid #a2a2a2;
+}
+aside .projects .customProjList {
+  font-size: 0.9rem;
+  height: calc(100% - 6rem);
+}
+aside .projects .customProjList .customProj {
+  cursor: pointer;
+  color: #a2a2a2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  justify-content: space-between;
+  margin-left: 1rem;
+  height: 3rem;
+  border-bottom: 1px solid #2e2e2d;
+  transition: border-bottom 0.3s ease-in-out;
+}
+aside .projects .customProjList .customProj:hover {
+  border-bottom: 1px solid #a2a2a2;
+}
+aside .projects .customProjList .customProj button {
+  color: #a2a2a2;
+  background-color: transparent;
+  border: none;
+}
+aside .projects .customProjList .customProj button:hover {
+  font-weight: 800;
+}
+aside .projects .customProjList .customProjForm {
+  display: none;
+  color: #a2a2a2;
+  margin-left: 1rem;
+  height: 6rem;
+  gap: 0.5rem;
+  border-bottom: 1px solid #2e2e2d;
+  transition: border-bottom 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+aside .projects .customProjList .customProjForm > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+aside .projects .customProjList .customProjForm > div button {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: #2d2d2e;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: #e6e6e6;
+  cursor: pointer;
+}
+aside .projects .customProjList .customProjForm > div button:last-child {
+  background-color: transparent;
+  border: 2px solid #2d2d2e;
+}
+aside .projects .customProjList .customProjForm input {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: #464648;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: #e6e6e6;
+}
+aside .projects .customProjList .customProjForm input:focus {
+  outline: 1px solid #5f5f62;
+}
+aside .projects .customProjList .customProjBtn {
+  cursor: pointer;
+  color: #a2a2a2;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  justify-content: start;
+  margin-left: 1rem;
+  height: 3rem;
+  border-bottom: 1px solid #2e2e2d;
+  transition: border-bottom 0.3s ease-in-out;
+}
+aside .projects .customProjList .customProjBtn:hover {
   border-bottom: 1px solid #a2a2a2;
 }
 aside .footer {
