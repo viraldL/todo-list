@@ -10,6 +10,12 @@ function populateStorage(projects) {
     }
 }
 
+function deleteProjectLS(index) {
+    localStorage.removeItem(`project${index}`);
+    localStorage.removeItem(`project${index}Tasks`);
+    console.log("ls");
+}
+
 function retriveStorage() {
     let storageLength = localStorage.length;
     if(storageLength > 0) {
@@ -29,5 +35,43 @@ function retriveStorage() {
     }
 }
 
+function showStorage() {
+    retriveStorage()
 
-export { populateStorage, retriveStorage, projectsList };
+    const projList = document.querySelector(".customProjList");
+    const addForm = document.querySelector(".customProjForm");
+
+    for(let i = 0; i < projectsList.length; i++) {    
+        if(localStorage.getItem(`project${i}`) === null){
+            console.log("null");
+            continue;
+        } else {
+            const div = document.createElement("div");
+            const deleteBtn = document.createElement("button");
+
+            let projectName = localStorage.getItem(`project${i}`);
+            
+            div.classList.add("customProj");
+            div.setAttribute("data-project", `${i}`);
+            div.textContent = projectName;
+        
+            const newProject = new Project(projectName);
+            console.log(projectsList);
+        
+            deleteBtn.setAttribute("data-btn", `${i}`);
+            deleteBtn.textContent = "X";
+        
+            div.appendChild(deleteBtn);
+        
+            deleteBtn.addEventListener("click", () => {
+                div.remove();
+                deleteProjectLS(i);
+                projectsList.splice(i, 1);
+            })
+            projList.insertBefore(div, addForm);
+    }
+    }
+}
+
+
+export { populateStorage, retriveStorage, projectsList, showStorage, deleteProjectLS };

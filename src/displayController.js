@@ -1,4 +1,6 @@
 import Project from "./project.js";
+import { populateStorage, retriveStorage, projectsList, deleteProjectLS } from "./localStorage.js";
+
 
 const addTaskFormOpenClose = function(open, close, form) {
     const openBtn = document.querySelector(open);
@@ -38,9 +40,7 @@ const getNewData = function() {
 }
 
 //add project to the list
-const addProject = function() {
-    let index = getNewData();
-    let inputField = document.querySelector(".projectName");
+const addProject = function(index, title) {
 
     const projList = document.querySelector(".customProjList");
     const addForm = document.querySelector(".customProjForm");
@@ -50,7 +50,12 @@ const addProject = function() {
 
     div.classList.add("customProj");
     div.setAttribute("data-project", `${index}`);
-    div.textContent = inputField.value;
+    div.textContent = title;
+
+    const newProject = new Project(title);
+    projectsList.push(newProject);
+    populateStorage(projectsList);
+    console.log(projectsList);
 
     deleteBtn.setAttribute("data-btn", `${index}`);
     deleteBtn.textContent = "X";
@@ -59,6 +64,8 @@ const addProject = function() {
 
     deleteBtn.addEventListener("click", () => {
         div.remove();
+        deleteProjectLS(index);
+        projectsList.splice(index, 1);
     })
     projList.insertBefore(div, addForm);
 }
@@ -78,11 +85,17 @@ const addProjectBtn = function() {
         closeForm();
     })
     addButton.addEventListener("click", () => {
-        addProject();
+        let index = getNewData();
+        let inputField = document.querySelector(".projectName");
+        addProject(index, inputField.value);
         closeForm();
     })
 
 }
+
+
+//DODAJ RETRIVEPROJECTS
+
 
 
 export { addTaskFormOpenClose, addProjectBtn };
