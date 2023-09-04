@@ -3,7 +3,7 @@ import Project from "./project.js";
 import { populateStorage, retriveStorage, projectsList, showStorage } from "./localStorage.js";
 import { addTaskFormOpenClose, addProjectBtn } from "./displayController.js";
 
-showStorage();
+// showStorage();
 // localStorage.clear();
 // projectsList = [];
 
@@ -25,6 +25,8 @@ showStorage();
 // console.log(projectsList);
 // populateStorage(projectsList);
 // console.log(Inbox);
-console.log(projectsList);
+// console.log(projectsList);
 addTaskFormOpenClose(".addTask", ".closeBtn", ".taskForm");
 addProjectBtn();
+// populateStorage(projectsList);
+// retriveStorage();

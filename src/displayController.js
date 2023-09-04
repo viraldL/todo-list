@@ -1,6 +1,5 @@
 import Project from "./project.js";
-import { populateStorage, retriveStorage, projectsList, deleteProjectLS } from "./localStorage.js";
-
+import { populateStorage, retriveStorage, projectsList, deleteProjectLS, showStorage } from "./localStorage.js";
 
 const addTaskFormOpenClose = function(open, close, form) {
     const openBtn = document.querySelector(open);
@@ -40,8 +39,8 @@ const getNewData = function() {
 }
 
 //add project to the list
-const addProject = function(index, title) {
-
+const addProject = function(title) {
+    const index = getNewData();
     const projList = document.querySelector(".customProjList");
     const addForm = document.querySelector(".customProjForm");
 
@@ -54,8 +53,10 @@ const addProject = function(index, title) {
 
     const newProject = new Project(title);
     projectsList.push(newProject);
-    populateStorage(projectsList);
     console.log(projectsList);
+    // populateStorage(projectsList);
+    // console.log(projectsList);
+    // showStorage();
 
     deleteBtn.setAttribute("data-btn", `${index}`);
     deleteBtn.textContent = "X";
@@ -64,8 +65,10 @@ const addProject = function(index, title) {
 
     deleteBtn.addEventListener("click", () => {
         div.remove();
-        deleteProjectLS(index);
-        projectsList.splice(index, 1);
+        let allDivs = document.querySelectorAll("[data-project]");
+        for(let i = 0; i < allDivs.length; i++){
+            allDivs[i].setAttribute('data-project', i);
+        }
     })
     projList.insertBefore(div, addForm);
 }
@@ -85,9 +88,9 @@ const addProjectBtn = function() {
         closeForm();
     })
     addButton.addEventListener("click", () => {
-        let index = getNewData();
+        // let index = getNewData();
         let inputField = document.querySelector(".projectName");
-        addProject(index, inputField.value);
+        addProject(inputField.value);
         closeForm();
     })
 
