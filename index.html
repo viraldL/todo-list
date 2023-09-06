@@ -13,10 +13,10 @@
             <h1>TO<sub>vv</sub>DO<sub>vv</sub>LIST</h1>
         </div>
         <div class="projects">
-            <div class="proj"><img src="images/inbox.svg" alt="inbox" data-project="0">Inbox</div>
+            <div id="inbox" class="proj"><img src="images/inbox.svg" alt="inbox" data-project="0">Inbox</div>
             <div class="proj"><img src="images/archive.svg" alt="inbox">Projects</div>
             <div class="customProjList">
-                <form action="">
+                <form id="projForm" action="">
                     <div class="customProjForm"><input required class="projectName" type="text"><div><button class="add">Add</button><button class="close">X</button></div></div>
                     <div class="customProjBtn" type="button">Add +</div>
                 </form>
@@ -35,23 +35,23 @@
                 <div>
                     <span class="closeBtn">X</span>
                     <h4>Add task</h4>
-                    <div>Title: <input type="text"></div>
-                    <div>Description: <input type="text"></div>
-                    <div>Date: <input type="date"></div>
+                    <div>Title: <input id="taskTitle" type="text"></div>
+                    <div>Description: <input id="taskDesc" type="text"></div>
+                    <div>Date: <input id="taskDate" type="date"></div>
                     <div>
                         Priority:
-                        <select>
-                            <option value="">Low</option>
-                            <option value="">Normal</option>
-                            <option value="">High</option>
+                        <select id="taskPrior">
+                            <option value="0">Low</option>
+                            <option value="1">Normal</option>
+                            <option value="2">High</option>
                         </select>
                     </div>
-                    <div><button>ADD</button></div>
+                    <div><button id="addTask">ADD</button></div>
                 </div>
             </div>
         </header>
         <section>
-            <div class="task">
+            <!-- <div class="task">
                 <input type="checkbox">
                 <div>
                     <div class="titlenpri">
@@ -117,7 +117,7 @@
                     Vero pariatur reprehenderit, ea dolor modi nulla sed consectetur rem tempore quo amet corrupti dolores, qui voluptate autem unde soluta beatae sint mollitia maxime, fuga excepturi nam omnis! Quibusdam, doloremque.</span>
                     <span class="dueDate">2022-10-13</span>
                 </div>
-            </div>
+            </div> -->
         </section>
     </main>
     <script src="main.js"></script>

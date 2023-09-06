@@ -194,7 +194,7 @@ header .taskForm {
 }
 header .taskForm h4 {
   margin: auto;
-  color: #514a3f;
+  color: #a2a2a2;
 }
 header .taskForm > div {
   position: relative;
@@ -249,7 +249,7 @@ header .taskForm > div > div button {
   width: 100%;
   height: 2rem;
   background-color: #514a3f;
-  color: #a2a2a2;
+  color: #bcbcbc;
   border: none;
   cursor: pointer;
   border-radius: 5px;
