@@ -1,7 +1,8 @@
 import Project from "./project.js";
 import Task from "./task.js";
-import { populateStorage, retriveStorage, projectsList, deleteProjectLS, showStorage, current } from "./localStorage.js";
+import { populateStorage, retriveStorage, projectsList, deleteProjectLS, showStorage } from "./localStorage.js";
 
+let current = 0;
 const addTaskFormOpenClose = function(open, close, form) {
     const openBtn = document.querySelector(open);
     const closeBtn = document.querySelector(close);
@@ -111,6 +112,7 @@ const addProjectBtn = function() {
 
 }
 
+
 const addTask = function() {
     let currentProj = projectsList[current];
     let title = document.querySelector("#taskTitle").value;
@@ -125,7 +127,6 @@ const addTask = function() {
     const formBox = document.querySelector(".taskForm");
     currentProj.list.push(newTask);
     formBox.classList.remove("active");
-    // console.log(currentProj);
     desc = "";
     date = "";
     prior = "";
@@ -158,8 +159,8 @@ const changeProject = function(id) {
         showTask(task)
     })
     projDisplay.textContent = projName;
+    console.log(projectsList);
     current = id;
-
 }
 
 const renderTask = function(task) {
@@ -242,4 +243,4 @@ const showTask = function(task){
 
 
 
-export { addTaskFormOpenClose, addProjectBtn, addTaskBtn,inboxController };
+export { addTaskFormOpenClose, addProjectBtn, addTaskBtn, inboxController };

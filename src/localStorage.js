@@ -1,5 +1,5 @@
 import Project from "./project.js";
-let current = 0;
+
 let projectsList= [];
 function populateStorage(projects) {
     if(projects.length >= 0) {
@@ -69,4 +69,4 @@ function showStorage() {
 }
 
 
-export { populateStorage, retriveStorage, projectsList, showStorage, deleteProjectLS, current };
+export { populateStorage, retriveStorage, projectsList, showStorage, deleteProjectLS };
