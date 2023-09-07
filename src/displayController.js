@@ -39,6 +39,11 @@ const getNewData = function() {
     return allProj.length;
 }
 
+const getNewDataTask = function() {
+    const allTasks = document.querySelectorAll("[data-task]"); 
+    return allTasks.length;
+}
+
 //add project to the list
 const addProject = function(title) {
     const index = getNewData();
@@ -55,7 +60,7 @@ const addProject = function(title) {
 
     const newProject = new Project(title);
     projectsList.push(newProject);
-    console.log(projectsList);
+    // console.log(projectsList);
     // populateStorage(projectsList);
     // console.log(projectsList);
     // showStorage();
@@ -73,13 +78,13 @@ const addProject = function(title) {
         div.remove();
         let allDivs = document.querySelectorAll("[data-project]");
         projectsList.splice(index, 1);
-        console.log(projectsList);
+        // console.log(projectsList);
         for(let i = 0; i < allDivs.length; i++){
             allDivs[i].setAttribute('data-project', i);
         }
     })
     projList.insertBefore(div, addForm);
-    console.log(projectsList);
+    // console.log(projectsList);
 }
 
 
@@ -120,11 +125,11 @@ const addTask = function() {
     const formBox = document.querySelector(".taskForm");
     currentProj.list.push(newTask);
     formBox.classList.remove("active");
-    console.log(currentProj);
-    showTask(currentProj.list[0]);
+    // console.log(currentProj);
     desc = "";
     date = "";
     prior = "";
+    showTask(newTask)
 }
 
 const inboxController = function() {
@@ -148,17 +153,27 @@ const addTaskBtn = function() {
 const changeProject = function(id) {
     const projDisplay = document.querySelector("#projectName");
     const projName = projectsList[id].title;
+    document.querySelector("section").innerHTML = "";
+    projectsList[id].list.forEach(task => {
+        showTask(task)
+    })
     projDisplay.textContent = projName;
     current = id;
 
 }
 
 const renderTask = function(task) {
+    let index = getNewDataTask();
     const taskBox = document.createElement("div");
     taskBox.classList.add("task");
+    taskBox.setAttribute("data-task", `${index}`);
 
     const completedInput = document.createElement("input");
     completedInput.setAttribute("type", "checkbox");
+    completedInput.addEventListener("change", () => {
+        task.completed = !task.completed;
+        console.log(task);
+    })
 
     const div1 = document.createElement("div");
     const div2 = document.createElement("div");
@@ -170,13 +185,18 @@ const renderTask = function(task) {
 
     const prior = document.createElement("span");
     prior.classList.add("prior");
-    const starImg = document.createElement("img");
-    starImg.src = "images/star-fill.svg";
-    let i = 0;
+    const starImg0 = document.createElement("img");
+    const starImg1 = document.createElement("img");
+    const starImg2 = document.createElement("img");
+    starImg0.src = "images/star-fill.svg";
+    starImg1.src = "images/star-fill.svg";
+    starImg2.src = "images/star-fill.svg";
 
+    let i = 0;
     do {
-        prior.appendChild(starImg);
-    } while(task.priority < i);
+        eval(`prior.appendChild(starImg${i});`);
+        i++
+    } while(task.priority >= i);
 
     const desc = document.createElement("span");
     desc.classList.add("desc");
@@ -186,6 +206,19 @@ const renderTask = function(task) {
     date.classList.add("dueDate");
     date.textContent = task.dueDate;
 
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+
+    deleteBtn.addEventListener("click", () => {
+        taskBox.remove();
+        const allTasks = document.querySelectorAll("[data-task]");
+        projectsList[current].list.splice(index, 1);
+        for(let i = 0; i < allTasks.length; i++){
+            allTasks[i].setAttribute('data-task', i);
+        }
+        console.log(projectsList);
+    })
+
     div2.appendChild(title);
     div2.appendChild(prior);
 
@@ -194,8 +227,9 @@ const renderTask = function(task) {
     div1.appendChild(date);
     taskBox.appendChild(completedInput);
     taskBox.appendChild(div1);
-
-    return taskBox
+    taskBox.appendChild(deleteBtn);
+    
+    return taskBox;
 }
 
 const showTask = function(task){

@@ -19,6 +19,7 @@ main {
         }
         .task {
             margin-block: 1rem;
+            padding: 1rem;
             @include flex;
             gap: 10px;
             background-color: $taskBg;
@@ -87,6 +88,22 @@ main {
                 .dueDate {
                     color: $textWd;
                     font-size: 0.8rem;
+                }
+            }
+
+            button {
+                background-color: $btn;
+                border: none;
+                padding: 0.5rem 0.5rem;
+                cursor: pointer;
+                color: $textW;
+                font-weight: 600;
+                border-radius: 10px;
+                border: 2px solid $btn;
+                transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+                &:hover {
+                    background: transparent;
+                    color: $textY;
                 }
             }
         }
