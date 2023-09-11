@@ -230,15 +230,16 @@ header .taskForm > div > div {
   flex-direction: column;
   align-items: start;
 }
-header .taskForm > div > div input, header .taskForm > div > div select {
+header .taskForm > div > div input, header .taskForm > div > div textarea, header .taskForm > div > div select {
   font-family: "Nunito Sans", sans-serif;
   background-color: #464648;
   border: none;
   padding: 0.5rem;
   border-radius: 5px;
+  resize: none;
   color: #e6e6e6;
 }
-header .taskForm > div > div input:focus, header .taskForm > div > div select:focus {
+header .taskForm > div > div input:focus, header .taskForm > div > div textarea:focus, header .taskForm > div > div select:focus {
   outline: 1px solid #5f5f62;
 }
 header .taskForm > div > div:last-child {
