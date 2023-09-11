@@ -82,13 +82,13 @@ header {
                 @include flex;
                 flex-direction: column;
                 align-items: start;
-                input, select {
+                input, textarea, select {
                     @include normal;
                     background-color: lighten($color: $btn, $amount: 10);
                     border: none;
                     padding: 0.5rem;
                     border-radius: 5px;
-                    
+                    resize: none;
                     color: darken($color: white, $amount: 10);
 
                     &:focus {
