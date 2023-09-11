@@ -70,6 +70,7 @@ aside .projects .customProjList .customProj button:hover {
   font-weight: 800;
 }
 aside .projects .customProjList .customProjForm {
+  animation: projectFormAnimation 0.5s ease-in-out;
   display: none;
   color: #a2a2a2;
   margin-left: 1rem;
@@ -136,6 +137,16 @@ aside .footer {
   height: 5%;
 }
 
+@keyframes projectFormAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 header {
   height: 10%;
   margin-inline: 1rem;
@@ -179,6 +190,7 @@ header .active {
   display: flex !important;
 }
 header .taskForm {
+  animation: taskFormAnimation 0.5s ease-in;
   display: none;
   justify-content: center;
   align-items: center;
@@ -263,6 +275,14 @@ header .taskForm > div > div button:hover {
   color: #514a3f;
 }
 
+@keyframes taskFormAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 main {
   width: 80%;
   height: 100%;
@@ -284,6 +304,7 @@ main section::-webkit-scrollbar-thumb {
   background-color: #2e2e2d;
 }
 main section .task {
+  animation: taskAnimation 0.3s ease-in-out;
   margin-block: 1rem;
   padding: 1rem;
   display: flex;
@@ -374,6 +395,16 @@ main section .task button:hover {
   color: #514a3f;
 }
 
+@keyframes taskAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 body {
   background-color: #141416;
   display: flex;

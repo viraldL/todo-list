@@ -40,6 +40,7 @@ header {
     }
 
     .taskForm {
+        animation: taskFormAnimation 0.5s ease-in;
         display: none;
         justify-content: center;
         align-items: center;
@@ -117,6 +118,16 @@ header {
                 }
             }
         }
+    }
+}
+
+@keyframes taskFormAnimation {
+    0% {
+        opacity: 0;
+
+    }
+    100% {
+        opacity: 1;
     }
 }
 

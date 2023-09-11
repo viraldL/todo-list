@@ -18,6 +18,7 @@ main {
             background-color: $line;
         }
         .task {
+            animation: taskAnimation 0.3s ease-in-out;
             margin-block: 1rem;
             padding: 1rem;
             @include flex;
@@ -107,5 +108,16 @@ main {
                 }
             }
         }
+    }
+}
+
+@keyframes taskAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
