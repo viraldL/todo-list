@@ -61,6 +61,7 @@ const addProject = function(title) {
 
     const newProject = new Project(title);
     projectsList.push(newProject);
+    populateStorage(projectsList);
     // console.log(projectsList);
     // populateStorage(projectsList);
     // console.log(projectsList);
@@ -78,8 +79,8 @@ const addProject = function(title) {
     deleteBtn.addEventListener("click", () => {
         div.remove();
         let allDivs = document.querySelectorAll("[data-project]");
-        projectsList.splice(index, 1);
-        // console.log(projectsList);
+        projectsList.splice(div.getAttribute('data-project'), 1);
+        deleteProjectLS(div.getAttribute('data-project'));
         for(let i = 0; i < allDivs.length; i++){
             allDivs[i].setAttribute('data-project', i);
         }
@@ -87,6 +88,51 @@ const addProject = function(title) {
     projList.insertBefore(div, addForm);
     // console.log(projectsList);
 }
+
+const showProjects = function() {
+
+    const projList = document.querySelector(".customProjList");
+    const addForm = document.querySelector("#projForm");
+    let proj = JSON.parse(localStorage.getItem(`projects`));
+    
+    if(proj.length > 1) {
+        for(let i = 1; i < proj.length; i++) {
+
+            const div = document.createElement("div");
+            const deleteBtn = document.createElement("button");
+            const p = document.createElement("p");
+
+            let projectName = proj[i].title;
+            
+            div.classList.add("customProj");
+            div.setAttribute("data-project", `${i}`);
+            p.textContent = projectName;
+        
+            deleteBtn.setAttribute("data-btn", `${i}`);
+            deleteBtn.textContent = "X";
+        
+            div.appendChild(p);
+            div.appendChild(deleteBtn);
+
+            p.addEventListener("click", () => {
+                changeProject(div.getAttribute('data-project'));
+            })
+        
+            deleteBtn.addEventListener("click", () => {
+                div.remove();
+                let allDivs = document.querySelectorAll("[data-project]");
+                projectsList.splice(div.getAttribute('data-project'), 1);
+                deleteProjectLS(div.getAttribute('data-project'));
+                for(let i = 0; i < allDivs.length; i++){
+                    allDivs[i].setAttribute('data-project', i);
+                }
+            })
+            projList.insertBefore(div, addForm);
+
+        }
+    }
+}
+
 
 
 //control add project from buttons
@@ -127,6 +173,7 @@ const addTask = function() {
     const formBox = document.querySelector(".taskForm");
     currentProj.list.push(newTask);
     formBox.classList.remove("active");
+    populateStorage(projectsList);
     desc = "";
     date = "";
     prior = "";
@@ -138,6 +185,16 @@ const inboxController = function() {
     inbox.addEventListener("click", () => {
         changeProject(0);
     })
+    if(!localStorage.getItem(`projects`)) {
+        let Inbox = new Project("Inbox");
+        projectsList.push(Inbox);
+        populateStorage(projectsList);
+    }
+    if(projectsList[0].list.length !== 0){
+        projectsList[0].list.forEach(task => {
+            showTask(task)
+        })
+    }
 }
 
 const addTaskBtn = function() {
@@ -171,9 +228,11 @@ const renderTask = function(task) {
 
     const completedInput = document.createElement("input");
     completedInput.setAttribute("type", "checkbox");
+    completedInput.checked = task.completed;
     completedInput.addEventListener("change", () => {
         task.completed = !task.completed;
         console.log(task);
+        populateStorage(projectsList);
     })
 
     const div1 = document.createElement("div");
@@ -213,11 +272,12 @@ const renderTask = function(task) {
     deleteBtn.addEventListener("click", () => {
         taskBox.remove();
         const allTasks = document.querySelectorAll("[data-task]");
-        projectsList[current].list.splice(index, 1);
+        projectsList[current].list.splice(taskBox.getAttribute("data-task"), 1);
         for(let i = 0; i < allTasks.length; i++){
             allTasks[i].setAttribute('data-task', i);
         }
         console.log(projectsList);
+        populateStorage(projectsList);
     })
 
     div2.appendChild(title);
@@ -243,4 +303,4 @@ const showTask = function(task){
 
 
 
-export { addTaskFormOpenClose, addProjectBtn, addTaskBtn, inboxController };
+export { addTaskFormOpenClose, addProjectBtn, addTaskBtn, inboxController, showProjects };

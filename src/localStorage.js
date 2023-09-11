@@ -38,11 +38,11 @@ function showStorage() {
     // retriveStorage()
 
     const projList = document.querySelector(".customProjList");
-    const addForm = document.querySelector(".customProjForm");
+    const addForm = document.querySelector("#projForm");
     let proj = JSON.parse(localStorage.getItem(`projects`));
 
-    if(proj.length > 0) {
-        for(let i = 0; i < proj.length; i++) {    
+    if(proj.length > 1) {
+        for(let i = 1; i < proj.length; i++) {    
             
                 const div = document.createElement("div");
                 const deleteBtn = document.createElement("button");
