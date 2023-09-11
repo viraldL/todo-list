@@ -1,7 +1,7 @@
 # todo-list
 Simple todo list with projects option
 
-What have I used:
+What did I use:
 - Vanilla JavaScript
 - Webpack
 - SCSS
