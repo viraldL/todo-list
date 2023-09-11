@@ -2,4 +2,4 @@
 
 [Try it here!](https://viraldl.github.io/todo-list/)
 
-![Preview image](images/preview.png)
+![Preview image](dist/images/preview.png)
