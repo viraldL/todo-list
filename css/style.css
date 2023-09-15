@@ -20,7 +20,7 @@ aside .header {
   border-bottom: 2px solid #2e2e2d;
 }
 aside .header h1 sub {
-  color: #616160;
+  color: #838181;
 }
 aside .projects {
   height: 85%;
@@ -133,7 +133,7 @@ aside .footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #514a3f;
+  color: #8c806d;
   height: 5%;
 }
 
@@ -184,7 +184,7 @@ header .addTask {
 }
 header .addTask:hover {
   background: transparent;
-  color: #514a3f;
+  color: #8c806d;
 }
 header .active {
   display: flex !important;
@@ -261,18 +261,18 @@ header .taskForm > div > div:last-child {
 header .taskForm > div > div button {
   width: 100%;
   height: 2rem;
-  background-color: #514a3f;
+  background-color: #8c806d;
   color: #bcbcbc;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   font-weight: 600;
-  border: 2px solid #514a3f;
+  border: 2px solid #8c806d;
   transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 header .taskForm > div > div button:hover {
   background: transparent;
-  color: #514a3f;
+  color: #8c806d;
 }
 
 @keyframes taskFormAnimation {
@@ -365,7 +365,7 @@ main section .task div .title {
   font-size: 2rem;
 }
 main section .task div .desc {
-  color: #514a3f;
+  color: #8c806d;
   font-size: 1rem;
 }
 main section .task div .prior {
@@ -376,7 +376,7 @@ main section .task div .prior img {
   fill: #fff;
 }
 main section .task div .dueDate {
-  color: #616160;
+  color: #838181;
   font-size: 0.8rem;
 }
 main section .task button {
@@ -392,7 +392,7 @@ main section .task button {
 }
 main section .task button:hover {
   background: transparent;
-  color: #514a3f;
+  color: #8c806d;
 }
 
 @keyframes taskAnimation {
