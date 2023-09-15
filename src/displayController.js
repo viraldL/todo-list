@@ -251,6 +251,9 @@ const renderTask = function(task) {
     starImg0.src = "images/star-fill.svg";
     starImg1.src = "images/star-fill.svg";
     starImg2.src = "images/star-fill.svg";
+    starImg0.setAttribute("alt", "");
+    starImg1.setAttribute("alt", "");
+    starImg2.setAttribute("alt", "");
 
     let i = 0;
     do {
