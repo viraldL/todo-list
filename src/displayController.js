@@ -62,10 +62,6 @@ const addProject = function(title) {
     const newProject = new Project(title);
     projectsList.push(newProject);
     populateStorage(projectsList);
-    // console.log(projectsList);
-    // populateStorage(projectsList);
-    // console.log(projectsList);
-    // showStorage();
 
     deleteBtn.setAttribute("data-btn", `${index}`);
     deleteBtn.textContent = "X";
@@ -86,7 +82,6 @@ const addProject = function(title) {
         }
     })
     projList.insertBefore(div, addForm);
-    // console.log(projectsList);
 }
 
 const showProjects = function() {
@@ -150,7 +145,6 @@ const addProjectBtn = function() {
     })
     addButton.addEventListener("click", (e) => {
         e.preventDefault();
-        // let index = getNewData();
         let inputField = document.querySelector(".projectName");
         addProject(inputField.value);
         closeForm();
@@ -300,10 +294,5 @@ const showTask = function(task){
     const section = document.querySelector("section");
     section.appendChild(renderTask(task));
 }
-
-
-//DODAJ RETRIVEPROJECTS
-
-
 
 export { addTaskFormOpenClose, addProjectBtn, addTaskBtn, inboxController, showProjects };

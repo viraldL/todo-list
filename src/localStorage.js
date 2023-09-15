@@ -11,7 +11,6 @@ function deleteProjectLS(index) {
     let proj = JSON.parse(localStorage.getItem(`projects`));
     proj.splice(index, 1);
     projectsList = proj;
-    // localStorage.setItem(`projects`, JSON.stringify(proj));
     populateStorage(projectsList);
 }
 
@@ -35,8 +34,6 @@ function retriveStorage() {
 }
 
 function showStorage() {
-    // retriveStorage()
-
     const projList = document.querySelector(".customProjList");
     const addForm = document.querySelector("#projForm");
     let proj = JSON.parse(localStorage.getItem(`projects`));
